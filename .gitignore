@@ -1,0 +1,41 @@
+# Dependencies
+node_modules/
+frontend/node_modules/
+backend/node_modules/
+frontend/.next/
+frontend/out/
+
+# Environment files — NEVER commit secrets
+.env
+.env.local
+.env.*.local
+frontend/.env
+frontend/.env.local
+backend/.env
+backend/.env.local
+
+# Build output
+frontend/.next/
+frontend/out/
+backend/dist/
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/settings.json
+.idea/
+
+# Test output
+coverage/
+frontend/coverage/
+backend/coverage/
+playwright-report/
+test-results/
+

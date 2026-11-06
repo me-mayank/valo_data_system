@@ -1,0 +1,106 @@
+@import "tailwindcss";
+
+/* =========================================================
+   DATA VALO SYSTEM — Design Tokens (PRD §10.1, §10.2, §10.3)
+   Utilitarian design system. No decorative values allowed here.
+   ========================================================= */
+
+@theme inline {
+  /* ── Colour tokens ─────────────────────────────────────── */
+  --color-navy:       #0B1F3A; /* Ink: text, borders, header/footer/hero          */
+  --color-cream:      #F7F1E3; /* Paper: page background                           */
+  --color-sand:       #EADFC8; /* Panels, table headers, row hover                 */
+  --color-rule-soft:  #CFC3A8; /* Inner hairline dividers                          */
+  --color-navy-soft:  #3A4A66; /* Secondary text, labels (≈7.9:1 on cream)         */
+  --color-coral:      #F2543D; /* Signal only: primary button, active marker       */
+  --color-error:      #B3261E; /* Error text and borders (≈5.8:1 on cream)         */
+  --color-white:      #FFFFFF; /* Input backgrounds                                */
+
+  /* ── Typography ───────────────────────────────────────── */
+  --font-mono: var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace;
+  --font-sans: var(--font-ibm-plex-sans), 'IBM Plex Sans', sans-serif;
+
+  /* ── Spacing scale (multiples of 4px) ─────────────────── */
+  /* Tailwind 4 inherits 4/8/12/16/20/24... automatically */
+
+  /* ── Border radius: ZERO everywhere (PRD §10.3, §10.7) ── */
+  --radius:    0px;
+  --radius-sm: 0px;
+  --radius-md: 0px;
+  --radius-lg: 0px;
+  --radius-xl: 0px;
+  --radius-full: 0px;
+
+  /* ── Shadows: NONE (PRD §10.7) ─────────────────────────── */
+  --shadow-sm:  none;
+  --shadow:     none;
+  --shadow-md:  none;
+  --shadow-lg:  none;
+  --shadow-xl:  none;
+  --shadow-2xl: none;
+  --shadow-inner: none;
+
+  /* ── Font sizes (PRD §10.2 scale: 12/14/16/20/28/40/56) ── */
+  --text-label: 0.75rem;   /* 12px — minimum; labels */
+  --text-sm:    0.875rem;  /* 14px */
+  --text-base:  1rem;      /* 16px — body */
+  --text-lg:    1.25rem;   /* 20px */
+  --text-h3:    1.75rem;   /* 28px — mobile H1 max */
+  --text-h2:    2.5rem;    /* 40px */
+  --text-h1:    3.5rem;    /* 56px — desktop H1 */
+
+  /* ── Transition: max 100ms (PRD §10.4) ────────────────── */
+  --transition-fast: 100ms;
+}
+
+/* ── Base reset ─────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  background-color: var(--color-cream);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.5;
+  margin: 0;
+  padding: 0;
+  /* No decorative scrollbar styling */
+}
+
+/* ── Tabular numerals for all numbers (PRD §10.2) ────────── */
+.tabular-nums,
+table,
+.admin-table {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Focus ring (accessible, navy on light / cream on dark) ─ */
+:focus-visible {
+  outline: 3px solid var(--color-navy);
+  outline-offset: 2px;
+}
+
+/* On navy/coral backgrounds, use cream focus ring */
+.bg-navy :focus-visible,
+[data-bg="navy"] :focus-visible {
+  outline-color: var(--color-cream);
+}
+
+/* ── Reduced motion (PRD §10.4) ─────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
